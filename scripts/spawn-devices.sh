@@ -14,7 +14,7 @@ start_flask_instance() {
     port=$((start_port + i))
     flask_command="INSTANCE=$i poetry run flask --app server run --host 0.0.0.0 --port $port"
     echo "Starting Flask instance on port $port..."
-    eval "$flask_command" & 
+    eval "$flask_command" &
     flask_pid=$!
     echo "  PID: $flask_pid"
     flask_pids+=($flask_pid)

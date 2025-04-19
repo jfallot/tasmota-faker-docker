@@ -1,3 +1,4 @@
+import random
 from os import path
 
 import jinja2
@@ -8,6 +9,10 @@ firmware_version = "13.0.0.1(tasmota)"
 
 class NoTemplateException(Exception):
     pass
+
+
+def rssi_value() -> int:
+    return random.randint(1, 100)
 
 
 def _load_template(name: str) -> str:
@@ -28,4 +33,5 @@ def status_template(name: str, host_name: str, instance: str) -> str:
         device_name=f"{device_name}-{instance}",
         firmware_version=firmware_version,
         ip_address=host_name,
+        rssi_value=rssi_value(),
     )
