@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 num_instances="${1:-3}"
 
